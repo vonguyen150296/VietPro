@@ -1,0 +1,208 @@
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box; /* firefox 2.0*/
+	-webkit-box-sizing: border-box;/* chrome 4.0 safari 3.2 */
+}
+/* style for tag html */
+body {
+	font-family: Arial;
+	margin: 0px;
+	background-color: #ccc;
+}
+
+input {
+	margin-bottom: 15px;
+}
+
+/* style for table stripe and reponsive */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Style header */
+.header ul {
+	position: fixed;
+	top: 0px;
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    height: 80px;
+	width: 100%;
+	z-index: 10;
+}
+
+.header li{
+	float: left;
+	padding-left: 30px;
+}
+
+.header .button1 {
+	display: block;
+	border: 1px solid yellow;
+	margin: 15px 30px;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	padding: 8px 16px;
+}
+
+.header .button1:hover {
+	background-color: #eee;
+	color: black;
+}
+
+.header .button1 .active {
+	background-color: white;
+	color: black;
+}
+
+.header .button2 {
+	margin: 20px 50px;
+}
+
+.avatar {
+	margin-bottom: 15px;
+}
+
+/*Style content*/
+.content {
+	background-color: white;
+	padding: 20px 15px;
+	margin: 30px 25px;
+}
+
+/* style for form register */
+.register {
+	border: 2px solid #ddd;
+	background-color: #eee;
+	margin: 30px;
+	padding: 15px 10px;
+}
+
+.title {
+	text-align: center;
+	background-color: purple;
+	padding: 5px;
+	height: 40px;
+	font-size: 20px;
+	margin: 10px 0px;
+	font-weight: bold;
+	color: white;
+}
+
+/* style for publication */
+.pub {
+	border: 1px solid #ddd;
+	background-color: #f9f9f9;
+	margin: 10px;
+	padding: 15px 10px;
+}
+
+.pub img {
+	width: 200px;
+	height: auto;
+	margin: 5px;
+}
+
+.pub p, button {
+	text-align: justify;
+	margin: 5px;
+}
+
+
+/* Style for footer */
+.footer {
+	height: auto;
+	background-color: #888;
+	color: white;
+	padding: 20px;
+}
+
+.footer p {
+	text-align: center;	
+}
+
+.footer div a {
+	color: white;
+}
+
+.footer ul.social li {
+  padding: 3px 0;
+}
+
+.footer ul.social li a i {
+  margin-right: 5px;
+  font-size: 25px;
+  -webkit-transition: .5s all ease;
+  transition: .5s all ease;
+}
+
+.footer ul.social li:hover a i {
+  font-size: 30px;
+  margin-top: -10px;
+}
+
+.footer ul.social li a,
+.footer ul.quick-links li a {
+  color: #ffffff;
+}
+
+.footer ul.social li a:hover {
+  color: #eeeeee;
+}
+
+/******************** Style for my account ************************/
+/* style for menu */
+.menu {
+	padding: 0px;
+	margin: 110px -30px 10px 0px;
+}
+
+.menu div a {
+	display: block;
+	text-decoration: none;
+	color: black;
+	font-size: 25px;
+	padding: 40px 30px;
+}
+.menu div a:hover:not(.active){
+	background-color: #eee;
+}
+
+.menu div .active {
+	background-color: white;
+}
+
+.content2 {
+	background-color: white;
+	padding: 30px 25px;
+	margin: 110px 0px 10px 0px;
+	min-height: 500px 
+}
+/* style for button */
+.button {
+	padding: 10px 16px;
+	background-color: #11AA00;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	margin: 0px;
+}
+
+.button:hover {
+	background-color: green;
+}
