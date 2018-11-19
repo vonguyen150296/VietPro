@@ -12,4 +12,8 @@ class Publication_Model extends Main_Model
 		$data = $this->get_where('publication', '*', "id = '".$id."'");
 		return $data;
 	}
+
+	public function create_pub($cols, $val){
+		return $this->insert('publication', $cols, $val);
+	}
 }

@@ -17,10 +17,6 @@
     		<input type="password" name="password" placeholder="Password" class="form-control form-control-lg" required>
 
     		<button type="submit" class="btn btn-success form-control form-control-lg">Se connecter</button>
-
-    		<div class="text-right ">
-    			<a href="./admin.php?c=welcome&a=reset"><b>Mot de passe oublié ?</b></a>
-    		</div> 
     	</form>
     </div>
 </div>

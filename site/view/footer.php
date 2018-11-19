@@ -3,8 +3,6 @@
 		<div class="col-sm-3 offset-sm-2">
 			<h5>À PROPOS</h5>
 			<div><a href="./site.php?c=welcome&a=history"><i class="fas fa-location-arrow"></i> Notre histoire</a></div>
-			<div><a href="./site.php?c=welcome&a=legal"><i class="fas fa-location-arrow"></i> Mentions légales</a></div>
-			<div><a href="./site.php?c=welcome&a=condition"><i class="fas fa-location-arrow"></i> Conditions générales</a></div>
 		</div>
 		<div class="col-sm-3">
 			<h5>NOUS REJOINDRE</h5>

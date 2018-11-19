@@ -24,7 +24,7 @@
 						echo "<td>".$u['email']."</td>";
 						echo "<td>".$u['phone']."</td>";
 						echo "<td>".$u['address']."</td>";
-						echo "<td><button class='btn-info'>Supprimer</button></td>";
+						echo "<td><button class='btn-info'><a href='./admin.php?c=user&a=delete&token=".$u['token']."' style='text-decoration: none; color:white;'>Supprimer</a></button></td>";
 						echo "</tr>";
 					}
 				?>

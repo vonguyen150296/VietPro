@@ -17,8 +17,8 @@
 	<div class="header">
 		<uL>
 			<li><a href="#"><img src="./site/public/image/logo.png" alt="" height="80px"></a></li>
-			<li><a href="#" class="button1"><i class="fas fa-user"></i> NOM PRENOM</a></li>
-			<li style="float:right;"><a href="#" class="btn btn-success button2">Se déconnecter</a></li>
+			<?php echo "<li><a href='#' class='button1'><i class='fas fa-user'></i> ".$_COOKIE['VietPro-Name']."</a></li>"; ?>
+			<li style="float:right;"><a href="./site.php?c=welcome&a=logout" class="btn btn-success button2">Se déconnecter</a></li>
 		</uL>
 	</div>
 	<!--end header -->
@@ -26,10 +26,10 @@
 		<!-- menu -->
 		<div class="col-sm-4">
 			<div class="menu">
-				<div><a href="#"><i class="fas fa-list-ul"></i> Liste De Température</a></div>
-				<div><a href="#" class="active"><i class="fas fa-plus-circle"></i> Nouvelle Température</a></div>
-				<div><a href="#"><i class="fas fa-user"></i> Mes Informations</a></div>
-				<div><a href="#"><i class="far fa-chart-bar"></i> Coube De Tentance</a></div>
+				<div><a href="./site.php?c=myaccount&a=list" class="list"><i class="fas fa-list-ul"></i> Liste De Température</a></div>
+				<div><a href="./site.php?c=myaccount&a=new" class="new"><i class="fas fa-plus-circle"></i> Nouvelle Température</a></div>
+				<div><a href="./site.php?c=myaccount&a=myinfo" class="myinfo"><i class="fas fa-user"></i> Mes Informations</a></div>
+				<div><a href="./site.php?c=myaccount&a=coube" class="coube"><i class="far fa-chart-bar"></i> Coube De Tentance</a></div>
 			</div>
 		</div>
 		<!-- content -->
@@ -38,6 +38,9 @@
 				<?php
 					$View_Loader = new View_Loader();
 					$data = array();
+					if(!empty($infos)){
+						$data = $infos;
+					}
 
 					$View_Loader->load($content,$data);
 					$View_Loader->show();
@@ -45,6 +48,31 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+	var linkCurrent = window.location.search; //prendre le lien courant
+
+	//ajouter class active
+	switch (linkCurrent){
+		case '?c=myaccount&a=list':
+		classCurrent = document.getElementsByClassName("list");
+		classCurrent[0].className = classCurrent[0].className.replace("list", "active");
+		break;
+
+		case '?c=myaccount&a=myinfo':
+		classCurrent = document.getElementsByClassName("myinfo");
+		classCurrent[0].className = classCurrent[0].className.replace("myinfo", "active");
+		break;
+
+		case '?c=myaccount&a=new':
+		classCurrent = document.getElementsByClassName("new");
+		classCurrent[0].className = classCurrent[0].className.replace("new", "active");
+		break;
+
+		case '?c=myaccount&a=coube':
+		classCurrent = document.getElementsByClassName("coube");
+		classCurrent[0].className = classCurrent[0].className.replace("coube", "active");
+		break;
+	}
+</script>
 </body>
 </html>

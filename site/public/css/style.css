@@ -123,6 +123,40 @@ th {
 	margin: 5px;
 }
 
+/* style for popular post */
+.popular {
+	width: 100%;
+	height: auto;
+	border: 1px solid #ddd;
+	background-color: #f9f9f9;
+	margin: 5px;
+	padding: 2px;
+}
+.tags {
+	border: 1px solid #ddd;
+	background-color: white;
+	margin: 10px 5px;
+	padding: 10px 5px;
+}
+.tags div {
+	border: 1px solid #ddd;
+	background-color: #777;
+	color: white;
+	padding: 5px;
+	margin: 2px;
+	display: inline-block;
+}
+
+/* style for page introduction */
+.intro-image {
+	border: 1px solid #ddd;
+	padding: 5px;
+	margin: -5px; 
+}
+
+.intro-image:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 /* Style for footer */
 .footer {
@@ -191,7 +225,7 @@ th {
 	background-color: white;
 	padding: 30px 25px;
 	margin: 110px 0px 10px 0px;
-	min-height: 500px 
+	min-height: 600px;
 }
 /* style for button */
 .button {
@@ -205,4 +239,29 @@ th {
 
 .button:hover {
 	background-color: green;
+}
+
+.card_temperature {
+	background-color: #f1f1f1;
+	border: 1px solid #ddd;
+	margin-bottom: 30px;
+	padding: 15px;
+	height: 140px;
+}
+
+.card_temperature i {
+	font-size: 35px;
+}
+
+.card_temperature div{
+	font-size: 40px;
+	color: blue;
+	text-align: center;
+}
+
+.sub_title{
+	color: #a99;
+	font-weight: bold;
+	font-size: 30px;
+
 }

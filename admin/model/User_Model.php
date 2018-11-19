@@ -3,7 +3,7 @@ require(PATH_APPLICATION . '/model/Main_Model.php');
 
 class User_Model extends Main_Model 
 {
-	public function login($username, $password)
+	public function login($username, $password) //check login
 	{
 
 		//verify password and username
@@ -17,19 +17,22 @@ class User_Model extends Main_Model
 
 	}
 
-	public function list() //take list user
+	public function list() //show list user
 	{
 		$data = $this->get_where('users', '*',"admin = 0");
 		return $data;
 	}
 
-	public function my_info($username){
+	public function my_info($username){ //show info admin
 		$data = $this->get_where('users','*', "email = '".$username."'");
 		return $data;
 	}
 
-	public function update($col, $id){
-		$data = $this->update('users',$cols, $email);
-		return $data;
+	public function remove($token){ //delete account of user
+		return $this->delete('users', "token = '".$token."'");
+	}
+
+	public function update_user($cols, $token){ //update info admin
+		return $this->update('users',$cols, $token);
 	}
 }

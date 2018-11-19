@@ -30,15 +30,18 @@ class Welcome_Controller extends Controller
         }
 
         $this->model->load('user');// loader model User
-        $user = new User_Model();
+        $info = new User_Model();//for take info user
+        $info = $info->my_info($username);
+
+        $user = new User_Model();//for check login
 
        if(isset($username) AND isset($password) AND $user->login($username, $password)){//vérifier le mot de passe et admin
             //create session
-            $_SESSION[$username] = $password;
+            $_SESSION[$username] = 'admin';
 
             //set cookie
             setcookie('VietPro', $username, 0);
-            echo $_SESSION[$username];
+            setcookie('VietPro-Name', $info[0]['name']." ".$info[0]['subname'],0);
             
             //load helper
             $this->helper->load('function'); 
@@ -50,7 +53,6 @@ class Welcome_Controller extends Controller
             $this->IndexAction($error);
         }
         
-        
     }
 
     public function LogoutAction(){
@@ -61,34 +63,11 @@ class Welcome_Controller extends Controller
 
         //delete cookie
         setcookie("VietPro", "", time()-3600);
+        setcookie("VietPro-Name", "", time()-3600);
 
         //redirect page login
         $this->helper->load('function'); 
         redirect('admin.php', 'welcome', 'index');
-    }
-
-    public function ResetAction()
-    {
-        $this->helper->load('function'); 
-        if(checkLoogin()){ //move page list publication if you login
-            //call redirect
-            redirect('admin.php', 'publication', 'list');
-        }else{
-            $data = array(
-                'content' => 'Reset_View'
-            );
-            $this->view->load('Main_View', $data);
-            $this->view->show();
-        }
-    }
-
-    public function RegisterAction()
-    {
-        $data = array(
-            'content' => 'Register_View'
-        );
-        $this->view->load('Main_view', $data);
-        $this->view->show();
     }
 
 }

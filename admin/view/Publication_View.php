@@ -1,4 +1,4 @@
-<div>
+<div class="card tableList">
 	
 	<?php 
 	if(!empty($pub)){

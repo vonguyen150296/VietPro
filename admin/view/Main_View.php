@@ -16,11 +16,13 @@
 	<!-- header -->
 	<div class="header">
 		<uL>
-			<li><a href="http://localhost/VietPro/admin.php"><img src="./admin/public/image/logo.png" alt="" height="80px"></a></li>
+			<li><a href="./admin.php"><img src="./admin/public/image/logo.png" alt="" height="80px"></a></li>
 			<?php
 			if (isset($_COOKIE['VietPro'])) {
-				echo "<li><a href='#' class='button1'><i class='fas fa-user'></i> NOM PRENOM</a></li>";
-				echo "<li style='float:right;'><a href='http://localhost/VietPro/admin.php?c=welcome&a=logout' class='btn btn-success button2'>Se déconnecter</a></li>";
+				if($_SESSION[$_COOKIE['VietPro']] == 'admin'){
+				echo "<li><a href='#' class='button1'><i class='fas fa-user'></i> ".$_COOKIE['VietPro-Name']."</a></li>";
+				echo "<li style='float:right;'><a href='./admin.php?c=welcome&a=logout' class='btn btn-success button2'>Se déconnecter</a></li>";
+				}
             }
 			?>
 		</uL>
@@ -28,13 +30,14 @@
 
 	<div class="content">
 		<?php
-			if(isset($_COOKIE['VietPro']))
-			{
-				// call file menu.php
-			require (PATH_APPLICATION . '/view/Menu.php');
+			if(isset($_COOKIE['VietPro'])){
+				if($_SESSION[$_COOKIE['VietPro']] == 'admin')
+					{
+					// call file menu.php
+					require (PATH_APPLICATION . '/view/Menu.php');
+					}
 			}
 			
-
 			$View_Loader = new View_Loader();
 			$data = array();
 			if(!empty($infos)){
@@ -53,6 +56,7 @@
 	</div>
 	
 	<!-- JavaScript -->
+	
 	<!--Bootstrap JS-->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -1,4 +1,8 @@
 <?php if ( ! defined('PATH_SYSTEM')) die ('Bad requested!');
+$email_admin = $_COOKIE['VietPro'];
+if($_SESSION[$email_admin] !== 'admin'){
+    header('Location: http://localhost/VietPro/admin.php');
+}
  
 class Publication_Controller extends Controller
 {
@@ -48,7 +52,6 @@ class Publication_Controller extends Controller
 
     public function CreateAction(){
         if(isset($_POST['create'])){
-            var_dump($_FILES['image']);
             if($_FILES['image']['name']){// verify exist file ou non
                 if($_FILES['image']['type'] == 'image/jpeg' OR $_FILES['image']['type'] == 'image/png' OR $_FILES['image']['type'] == 'image/jpg'){ //verify file is image oun non
 
@@ -58,14 +61,30 @@ class Publication_Controller extends Controller
                         $name = 'image_'.rand(10000000,99999999).'.jpg';
                     }
                     // move file image into folder upload
-                    move_uploaded_file($_FILES['image']['tmp_name'],'./admin/public/upload/'.$name);
+                    move_uploaded_file($_FILES['image']['tmp_name'],'./site/public/upload/'.$name);
 
                     //stocker in database
-                    
+                    date_default_timezone_set("Europe/Paris");
+                    $date=date("Y-m-d");
 
 
-                }else{
-                    //redirect
+                    $cols = "(subject, content, resume, image, date, important)";
+                    $value = "('".$_POST['subject']."', '".$_POST['content']."', '".$_POST['summary']."', '".$name."', '".$date."'";
+                    if(!empty($_POST['important'])){
+                        $value = $value.", '".$_POST['important']."')";
+                    }else{
+                        $value = $value.", ' ')";
+                    }
+
+                    $this->model->load('publication');// loader model publication
+                    $pub = new Publication_Model();
+                    $pub->create_pub($cols, $value);//create new publication
+
+                    //load helper
+                    $this->helper->load('function'); 
+
+                    //call redirect
+                    redirect('admin.php', 'publication', 'list');
                 }
             }
         }else{

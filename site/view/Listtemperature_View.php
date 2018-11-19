@@ -1,50 +1,27 @@
-<h4>Liste de température</h4>
+<h4 class="sub_title">Liste de température</h4><br>
 <div style="overflow-x:auto;">
 <table class="table">
 		<tr>
 			<th>Id</th>
-			<th>Ventilateur</th>
-			<th>Résistance</th>
-			<th>Capteur 1</th>
-			<th>Capteur 2</th>
-			<th>Capteur 3</th>
+			<th>La cuisine</th>
+			<th>La Chambre 1</th>
+			<th>La chambre 2</th>
+			<th>Le salle de salon</th>
 			<th>Date</th>
 		</tr>
-		<tr>
-			<td>1</td>
-			<td>15 V</td>
-			<td>20 Ω</td>
-			<td>15 °C</td>
-			<td>20 °C</td>
-			<td>25 °C</td>
-			<td>15-10-2018</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>15 V</td>
-			<td>20 Ω</td>
-			<td>15 °C</td>
-			<td>20 °C</td>
-			<td>25 °C</td>
-			<td>15-10-2018</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>15 V</td>
-			<td>20 Ω</td>
-			<td>15 °C</td>
-			<td>20 °C</td>
-			<td>25 °C</td>
-			<td>15-10-2018</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>15 V</td>
-			<td>20 Ω</td>
-			<td>15 °C</td>
-			<td>20 °C</td>
-			<td>25 °C</td>
-			<td>15-10-2018</td>
-		</tr>
+		<?php
+		if(!empty($tem)){
+			foreach ($tem as $t) {
+				echo '<tr>';
+				echo "<td>".$t['id']."</td>";
+				echo "<td>".$t['kitchen']." °C</td>";
+				echo "<td>".$t['bedroom1']." °C</td>";
+				echo "<td>".$t['bedroom2']." °C</td>";
+				echo "<td>".$t['livingroom']." °C</td>";
+				echo "<td>".$t['date']."</td>";
+				echo "</tr>";
+			}
+		}
+		?>
 </table>
 </div>
