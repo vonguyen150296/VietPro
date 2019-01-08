@@ -14,7 +14,7 @@
 </head>
 <body>
 	<!--header-->
-	<?php include './site/view/header.php'; ?>
+	<?php include './site/view/header.php'; //include file header.php?>
 	<!--end header -->
 
 	<div class="content">
@@ -31,7 +31,7 @@
 		?>
 	</div>
 	<!-- footer-->
-	<?php include './site/view/footer.php'; ?>
+	<?php include './site/view/footer.php'; // include file footer.php?>
 
 	<!--Script-->
 	<!--bootstrap-->

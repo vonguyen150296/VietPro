@@ -42,7 +42,7 @@ th {
     background-color: #333;
     height: 80px;
 	width: 100%;
-	z-index: 10;
+	z-index: 1;
 }
 
 .header li{
@@ -264,4 +264,41 @@ th {
 	font-weight: bold;
 	font-size: 30px;
 
+}
+
+
+
+/* animation pour ventilateur et resistance  */
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 2px solid black;
+    background-color: #aaa;
+}
+
+.ven {
+    width: 0;
+    height: 0;
+    border-left: 42.3px solid transparent;
+    border-right: 43.3px solid transparent;
+    border-bottom: 75px solid red;
+    margin: 0 0 0 6.7px;
+    animation-timing-function: linear;
+    transform-origin: 43.3px 50px;
+    
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes move {
+ 100% {-webkit-transform: rotate(360000deg);}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+  100% {transform: rotate(360000deg);}
+}
+
+.resistance{
+	font-size: 97px;
 }

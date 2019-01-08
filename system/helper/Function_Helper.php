@@ -25,38 +25,31 @@ function checkLoogin()
 //the function for modbus
 //function read a bit
 
-function read_bits($ip, $port, $debut, $nbits)
-{
-//  require_once dirname(_FILE_) . '\ModbusMaster.php';
-  $modbus = new ModbusMaster($ip, "TCP", $port);
-  $recData = $modbus->readCoils(1, $debut, $nbits);
-  return $recData;
-}
-
-function write_bits($ip, $port, $adresse, $value)
-{
- // require_once dirname(_FILE).'\ModbusMaster.php';
-  $modbus = new ModbusMaster($ip, "TCP",$port);
-  $modbus->writeMultipleCoils(0, $adresse, $value);  
-}
-
-
-function read_words($ip, $port, $debut, $nword)
-{
- // require_once dirname(_FILE_).'\ModbusMaster.php';
-  $modbus = new ModbusMaster($ip, "TCP", $port);
-  $recData = $modbus->readMultipleRegisters(1, $debut, $nwords);
-  for($i=0; $i<$nwords; $i=$i+2)
-  {
-    $val16bits[]=$recData[$i]*256+$recData[$i+1];
+function readRegist($ip, $port, $nregist, $adr){
+  try{
+    $modbus = new ModbusMaster($ip, "TCP", $port);
+    $recdata = $modbus->readMultipleRegisters(1,$adr, $nregist);
+    $val16bits = $recdata[0]*256 + $recdata[1];
+    return $val16bits;
   }
-  return $val16bits;
+  catch(Exception $e)
+  {
+    if($nregist == 61){
+      return 2;
+    }
+    if($nregist == 59){
+      return 2;
+    }
+    else
+    {
+      echo "Aucun de sonde de température n'est détectée"."<br>";
+    }
+  }
 }
 
-
-function write_words($ip, $port, $addresse, $value){
-  $modbus = new ModbusMaster($ip, "TCP", $port);
-  $data = array($value);
-  $dataTypes = array("WORD");
-  $modbus->writeMultipleRegister(0, $address, $data, $dataTypes);
+function writeRegist($ip, $port, $adr, $value){
+    $modbus = new ModbusMaster($ip, "TCP", $port);
+    $data = array($value);
+    $dataTypes = array('WORD');
+    $modbus->writeMultipleRegister(0, $adr, $data, $dataTypes);
 }

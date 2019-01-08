@@ -101,24 +101,42 @@ class Myaccount_Controller extends Controller
 	}
 
     public function ModbusAction(){
-        //$modbus = new ModbusMaster("10.174.2.92", "TCP");
         
          //load helper
         $this->helper->load('function');
-
-        // $result = read_bits('10.174.2.92', 502, 0, 4);
-        
         
         //store new temperature in the database
         $data['id_user'] = $_GET['id_user'];
-        $data['kitchen'] = 15;
-        $data['bedroom1'] = 16;
-        $data['bedroom2'] = 18;
-        $data['livingroom'] = 15;
+        $data['kitchen'] = readRegist("192.168.1.99",502,1,16)/10;
+        $data['bedroom1'] = readRegist("192.168.1.99",502,1,17)/10;
+        $data['bedroom2'] = readRegist("192.168.1.99",502,1,18)/10;
+        $data['livingroom'] = readRegist("192.168.1.99",502,1,19)/10;
         date_default_timezone_set("Europe/Paris");
         $data['date'] =  date("Y-m-d");
         $this->model->load('temperature');
         $new_temp = new Temperature_Model();
-        //$new_temp->create_new_temp($data); 
+        $new_temp->create_new_temp($data);
+    }
+
+    function AllumerAction(){
+        $this->helper->load('function');
+        writeRegist("192.168.1.100",502,66,0);//ok
+        echo "ok";
+    }
+
+    function EteindreAction(){
+        $this->helper->load('function');
+        writeRegist("192.168.1.100",502,66,1);//ok
+        echo "ok";
+    }
+
+    function RaAction(){ //open resistance
+        $this->helper->load('function');
+        writeRegist("192.168.1.100",502,69,1);//ok
+    }
+
+    function ReAction(){  //fermer resistance
+        $this->helper->load('function');
+        writeRegist("192.168.1.100",502,70,1);//ok
     }
 }
