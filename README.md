@@ -1,2 +1,3 @@
 # VietPro
-C'est mon project Web Automate
+C'est le project Web Automate en equipe 4 personnes.
+Cette application permet l'utilisateur connecter avec les capteur pour recuperer les temperatures de chambre, sale de salon, sale de cuissine,...
