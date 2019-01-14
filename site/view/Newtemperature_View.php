@@ -29,23 +29,23 @@
 </center>
 
 <br><br><br>
-	<?php echo "<input id='id_user' style='display: none;' value='".$temp[0]['id_user']."'>"; ?>
+	<?php echo "<input id='id_user' style='display: none;' value='".$temp[0]['id_user']."'>";?>
 <div class="row">
 	<div class="col-sm-5 offset-sm-1 card_temperature">
 		<h4><i class="fas fa-couch"></i><b> Le salle de salon</b></h4>
-		<?php echo "<div>".$temp[0]['livingroom']."°C</div>"; ?>
+		<?php if($temp[0]['livingroom'] != ''){ echo "<div>".$temp[0]['livingroom']."°C</div>"; }else{echo "<div>0 °C</div>";}?>
 	</div>
 	<div class="col-sm-5 offset-sm-1 card_temperature">
 		<h4><i class="fas fa-utensils"></i><b> La cuisine</b></h4>
-		<?php echo "<div>".$temp[0]['kitchen']."°C</div>"; ?>
+		<?php if($temp[0]['kitchen'] != ''){ echo "<div>".$temp[0]['kitchen']."°C</div>"; }else{echo "<div>0 °C</div>";}?>
 	</div>
 	<div class="col-sm-5 offset-sm-1 card_temperature">
 		<h4><i class="fas fa-bed"></i><b> La chambre 1</b></h4>
-		<?php echo "<div>".$temp[0]['bedroom1']."°C</div>"; ?>
+		<?php if($temp[0]['bedroom1'] != ''){ echo "<div>".$temp[0]['bedroom1']."°C</div>"; }else{echo "<div>0 °C</div>";}?>
 	</div>
 	<div class="col-sm-5 offset-sm-1 card_temperature">
 		<h4><i class="fas fa-bed"></i><b> La chambre 2</b></h4>
-		<?php echo "<div>".$temp[0]['bedroom2']."°C</div>"; ?>
+		<?php if($temp[0]['bedroom2'] != ''){ echo "<div>".$temp[0]['bedroom2']."°C</div>"; }else{echo "<div>0 °C</div>";}?>
 	</div>
 </div>
 <script type="text/javascript">
@@ -100,7 +100,7 @@
 		        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
 		        {
 		           var item = document.getElementById('ven');
-		           item.style.color = 'move 250s infinite';
+		           item.style.animation = 'move 250s infinite';
 		        }
 	        };
 	        xmlhttp.open("GET", "./site.php?c=myaccount&a=allumer", true);

@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-sm-3 offset-sm-2">
 			<h5>À PROPOS</h5>
-			<div><a href="./site.php?c=welcome&a=history"><i class="fas fa-location-arrow"></i> Notre histoire</a></div>
+			<div><a href="#"><i class="fas fa-location-arrow"></i> Notre histoire</a></div>
 		</div>
 		<div class="col-sm-3">
 			<h5>NOUS REJOINDRE</h5>

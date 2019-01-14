@@ -1,7 +1,7 @@
 <div class="row">
 		<div class="col-sm-4"><!--register-->
 			<div class="register">
-				<div class="title">S'INCRIRE</div><br>
+				<div class="title">S'INSCRIRE</div><br>
 				<form action="./site.php?c=welcome&a=register" method="post" accept-charset="utf-8" class="form-group">
 					<lable><b>Nom: *</b></lable>
 					<input class="form-control form-control-lg" name="name" type="text" placeholder="Votre nom" required>

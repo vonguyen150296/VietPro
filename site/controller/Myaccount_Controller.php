@@ -43,6 +43,32 @@ class Myaccount_Controller extends Controller
         $this->view->show();
 	}
 
+    public function CoubeAction(){
+
+        $this->model->load('temperature');// loader model publication
+        $data = array(
+            'content' => 'Coube_View'
+        );
+
+        $new = new Temperature_Model();
+        $id = $new->get_id($_COOKIE['VietPro']);
+        $tem = new Temperature_Model();
+        $temps = $tem->get_5_last_temp($id[0]['id']);
+        $i=0;
+        foreach ($temps as $value) {
+            $i = $i+1;
+        }
+        
+        $data['infos']['temps'] = $temps;
+        $data['infos']['temps'][0]['num'] = $i;
+        //var_dump($data['infos']['temps']);
+        // Load view
+        $this->view->load('Myaccount_View', $data);
+         
+        // Show view
+        $this->view->show();
+    }
+
 	public function NewAction()
 	{
         $this->model->load('temperature');
@@ -51,7 +77,20 @@ class Myaccount_Controller extends Controller
 		$data = array(
 			'content' => 'Newtemperature_View'
 		);
-        $data['infos']['temp'] = $new_temp->get_new_temp();
+        $new = new Temperature_Model();
+        $id = $new->get_id($_COOKIE['VietPro']);
+        $tem = new Temperature_Model();
+        $new = $new_temp->get_new_temp($id[0]['id']);
+        if($new){
+            $data['infos']['temp'] = $new;
+        }else{
+            $data['infos']['temp'][0]['id_user'] = $id[0]['id'];
+            $data['infos']['temp'][0]['bedroom1'] = '';
+            $data['infos']['temp'][0]['bedroom2'] = '';
+            $data['infos']['temp'][0]['livingroom'] = '';
+            $data['infos']['temp'][0]['kitchen'] = '';
+        }
+        
         // Load view
         $this->view->load('Myaccount_View', $data);
          
@@ -121,13 +160,11 @@ class Myaccount_Controller extends Controller
     function AllumerAction(){
         $this->helper->load('function');
         writeRegist("192.168.1.100",502,66,0);//ok
-        echo "ok";
     }
 
     function EteindreAction(){
         $this->helper->load('function');
         writeRegist("192.168.1.100",502,66,1);//ok
-        echo "ok";
     }
 
     function RaAction(){ //open resistance

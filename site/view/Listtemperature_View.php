@@ -1,4 +1,4 @@
-<h4 class="sub_title">Liste de température</h4><br>
+<h4 class="sub_title">Liste des températures</h4><br>
 <div style="overflow-x:auto;">
 <table class="table">
 		<tr>

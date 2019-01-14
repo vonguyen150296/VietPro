@@ -11,6 +11,7 @@
 	<!-- Add icon library -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" href="./site/public/css/style.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 </head>
 <body>
 	<!--header-->
@@ -26,10 +27,10 @@
 		<!-- menu -->
 		<div class="col-sm-4">
 			<div class="menu">
-				<div><a href="./site.php?c=myaccount&a=list" class="list"><i class="fas fa-list-ul"></i> Liste De Température</a></div>
+				<div><a href="./site.php?c=myaccount&a=list" class="list"><i class="fas fa-list-ul"></i> Liste Des Températures</a></div>
 				<div><a href="./site.php?c=myaccount&a=new" class="new"><i class="fas fa-plus-circle"></i> Nouvelle Température</a></div>
 				<div><a href="./site.php?c=myaccount&a=myinfo" class="myinfo"><i class="fas fa-user"></i> Mes Informations</a></div>
-				<div><a href="./site.php?c=myaccount&a=coube" class="coube"><i class="far fa-chart-bar"></i> Coube De Tentance</a></div>
+				<div><a href="./site.php?c=myaccount&a=coube" class="coube"><i class="far fa-chart-bar"></i> Coube De Tendance</a></div>
 			</div>
 		</div>
 		<!-- content -->
@@ -74,5 +75,6 @@
 		break;
 	}
 </script>
+
 </body>
 </html>
